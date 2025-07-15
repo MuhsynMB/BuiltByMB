@@ -456,7 +456,7 @@
                 </div>
             </div>
             <div class="md:w-1/2">
-                <form id="contactForm" class="space-y-6">
+                <form id="contactForm" action="https://formspree.io/f/manbyorr" method="POST" class="space-y-6">
                     <div id="formMessage" class="text-center text-indigo-400"></div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -509,8 +509,6 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS
-        emailjs.init("9zjT5UH6v5TBiQJlh");
 
         // Mobile menu toggle
         const menuToggle = document.getElementById('menu-toggle');
@@ -562,26 +560,6 @@
             });
         });
         
-        // Form submission with EmailJS
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-            
-            const serviceID = 'service_ypx2yfo';
-            const templateID = 'template_5yj82co';
-            
-            // Send the email
-            emailjs.sendForm(serviceID, templateID, this)
-                .then(() => {
-                    document.getElementById("formMessage").textContent = "Message sent successfully!";
-                    this.reset();
-                    setTimeout(() => {
-                        document.getElementById("formMessage").textContent = "";
-                    }, 5000);
-                }, (error) => {
-                    document.getElementById("formMessage").textContent = "Failed to send message. Please try again later.";
-                    console.error("EmailJS error:", error);
-                });
-        });
     </script>
 </body>
 </html>
